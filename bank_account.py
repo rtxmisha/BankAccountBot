@@ -2,7 +2,7 @@ class BankAccount:
     def __init__(self, acct_number, acct_name):
         self.acct_number = acct_number
         self.acct_name = acct_name
-        self.balance = 0.0
+        self.balance =
 
     def displayBalance(self):
         return("На вашем счету:", self.balance)
