@@ -26,9 +26,11 @@ def start(message):
 @bot.message_handler(content_types=['text'])
 def bot_message(message):
     if message.chat.type == 'private':
+
         if message.text == '🗄 Баланс':
-            myAccount = BankAccount(00000, "Сбербанк")
+            myAccount = BankAccount()
             bot.send_message(message.chat.id, myAccount.displayBalance())
+
         elif message.text == '📈 Доход':
             murkup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             item1 = types.KeyboardButton('📈 Основной доход')
@@ -44,12 +46,42 @@ def bot_message(message):
             item3 = types.KeyboardButton('📉 Расход')
             item4 = types.KeyboardButton('📊 История опреций')
             item5 = types.KeyboardButton('❓ Помощь')
-
             murkup.add(item1, item2, item3, item4, item5)
-
             bot.send_message(message.chat.id, 'Главное меню', reply_markup=murkup)
 
+        elif message.text == '📈 Основной доход':
+            @bot.message_handler(content_types=['text'])
+            def ask_age(message):
 
+                bot.send_message(message.chat.id, "What is your age?")
+
+                # with bot.retrieve_data(message.from_user.id, message.chat.id) as data:
+                #     data['surname'] = message.text
+
+            #
+            # msg = bot.send_message(message.chat.id, 'Введите добавляемую сумму:?')
+            # myAccount = BankAccount()
+            # bot.send_message(message.chat.id, myAccount.deposit(amount=msg))
+
+
+            # def user_answer(message):
+            #     value = int(message.text)
+            #     myAccount = BankAccount()
+            #     bot.send_message(message.chat.id, myAccount.deposit(amount=value))
+
+
+
+
+
+
+            # bot.send_message(message.chat.id, 'Введите сумму:')
+            # msg = bot.message_handler(message.chat.id, )
+            #
+            #
+            # value = int(msg)
+            # myAccount = BankAccount()
+            # bot.send_message(message.chat.id, myAccount.deposit(amount=value))
+            # bot.send_message(message.chat.id, f'Спасибо')
 
 
 

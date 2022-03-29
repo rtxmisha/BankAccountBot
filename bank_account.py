@@ -1,16 +1,15 @@
 class BankAccount:
-    def __init__(self, acct_number, acct_name):
-        self.acct_number = acct_number
-        self.acct_name = acct_name
-        self.balance =
+    def __init__(self):
+        # self.acct_number = acct_number
+        # self.acct_name = acct_name
+        self.balance = 0
 
     def displayBalance(self):
-        return("На вашем счету:", self.balance)
+        return(f"На вашем счету: {self.balance}")
 
     def deposit(self, amount):
         self.balance = self.balance + amount
-        print("Вы положили", amount)
-        print("Теперь на вашем счету:", self.balance)
+        return(f"Вы положили {amount}. Теперь на вашем счету: {self.balance}")
 
     def withdraw(self, amount):
         if self.balance >= amount:

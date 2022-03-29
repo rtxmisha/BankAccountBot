@@ -1,4 +1,4 @@
 config = {
     'name' : 'mybankaccountbot',
-    'token' : 'token'
+    'token' : '5131318571:AAE1RMZdOTigsp888cHvCdqk6WQWDa-wODA'
 }
